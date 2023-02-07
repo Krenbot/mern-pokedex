@@ -28,6 +28,19 @@ const trainerSchema = new Schema({
     ]
 })
 
+//password hashing middleware
+trainerSchema.pre('save', async function (next) {
+    if (this.isNew || this.isModified('password')) {
+        const saltRounds = 10
+        this.password = await bcrypt.hash(this.password, saltRounds)
+    }
+    next()
+})
+
+trainerSchema.methods.isCorrectPassword = function (password) {
+    return bcrypt.compare(password, this.password)
+}
+
 const Trainer = model('Trainer', trainerSchema)
 
 module.exports = Trainer
