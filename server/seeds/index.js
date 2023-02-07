@@ -32,7 +32,7 @@ connection.once('open', async () => {
             moves: moves.map(moveData => moveData.move.name)
         })
     }
-    //seed trainer
+
     const allPokemon = await Pokemon.find()
     const allPokemonIds = allPokemon.map(pokemon => pokemon._id)
 
