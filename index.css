@@ -1,0 +1,249 @@
+:root {
+  --primary: #ef5350;
+  --primaryDark: #c62828;
+  --primaryDarkest: #ab2222;
+  --secondary: #3761a8;
+  --secondaryLight: #c6d4ed;
+  --secondaryDark: #151229;
+  --hightlight: #feca1b;
+  --hightlightDark: #aa8509;
+  --light: #fefefe;
+  --green: #2FF903;
+  --greenDark: #1c4911;
+}
+
+body {
+  margin: 0;
+  font-family: 'Press Start 2P', cursive;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--secondaryDark);
+  background: var(--primary);
+  padding-bottom: 200px;
+}
+
+body.dark {
+  background: var(--secondaryDark);
+  color: var(--light);
+}
+
+h1, h2, h3 {
+  color: var(--secondary);
+}
+
+.dark h1, .dark h2, .dark h3 {
+  color: var(--green);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--primaryDark);
+  padding: 5px;
+  position: relative;
+}
+
+.dark .app-header {
+  background: var(--secondary);
+}
+
+.app-header .lense {
+  display: grid;
+  place-items: center;
+  background: var(--secondaryLight);
+  border: 3px solid var(--light);
+  color: var(--secondary);
+  border-radius: 100px;
+  height: 45px;
+  width: 45px;
+  position: relative;
+  top: 6px;
+  left: 15px;
+  z-index: 1;
+}
+
+.dark .app-header .lense {
+  background: var(--secondaryDark);
+  border-color: var(--secondaryDark);
+  color: var(--light);
+}
+
+.app-header::after {
+  content: '';
+  background: var(--primaryDark);
+  width: 100px;
+  height: 15px;
+  position: absolute;
+  bottom: -15px;
+  left: 0;
+  clip-path: polygon(0 0, 100% 0%, 75% 100%, 0% 100%);
+}
+
+.dark .app-header::after {
+  background: var(--secondary);
+}
+
+.lights {
+  display: flex; 
+  flex: 1;
+  justify-content: center;
+}
+
+.lights > * {
+  border-radius: 100px;
+  background: var(--hightlight);
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  border: 2px solid var(--hightlightDark);
+  height: 15px;
+  width: 15px;
+  margin: 15px;
+}
+
+.lights > *:first-child {
+  background: var(--primary);
+  border: 2px solid var(--primaryDark);
+}
+
+.lights > *:nth-child(3) {
+  background: var(--green);
+  border: 2px solid var(--greenDark);
+}
+
+form {
+  padding: 15px 0;
+  width: 100%;
+}
+
+#search-form {
+  background: var(--primaryDark);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+.dark #search-form {
+  background: var(--secondary);
+}
+
+#search-form .container {
+  display: flex;
+  align-items: center;
+}
+
+#search-form .container button {
+  display: grid;
+  place-items: center;
+  margin-left: 15px;
+  border-radius: 100px;
+  padding: 5px;
+} 
+
+input, select {
+  border-width: 0;
+  border-bottom: 3px solid var(--light);  
+  width: 100%;
+  font-size: 18px;
+  font-family: 'Press Start 2P', cursive;
+  outline: none;
+  padding: 5px;
+}
+
+#search-form input { 
+  background: transparent;
+  color: var(--light);
+}
+
+#search-form input:focus {
+  color: var(--hightlight);
+  background-color: var(--primaryDarkest);
+  border-bottom-color: var(--hightlight);
+}
+
+#search-form input:focus {
+  color: var(--green);
+  background-color: var(--secondaryDark);
+  border-bottom-color: var(--light);
+}
+
+#login-form input {
+  border-bottom: 3px solid var(--secondaryDark);
+  margin-bottom: 15px;
+}
+
+.container {
+  display: block;
+  max-width: 1020px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.screen {
+  margin-top: 30px;
+  border: 8px solid grey;
+  border-radius: 15px;
+  background: white;
+  box-shadow: inset 0px 1px 2px black;
+  padding: 15px;
+}
+
+.dark .screen {
+  background: var(--secondaryDark);
+}
+
+.results {
+  padding: 0;
+}
+
+.error {
+  color: var(--primaryDarkest)
+}
+
+button {
+  background-color: var(--secondary);
+  color: var(--secondaryDark);
+  padding: 15px;
+  font-size: 18px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  border-bottom: 3px solid var(--secondaryDark);
+}
+
+.dark button {
+  color: var(--secondaryDark);
+  background-color: var(--light);
+}
+
+.bg-green, .dark button.bg-green {
+  background: var(--green);
+  color: var(--greenDark);
+}
+
+.loader {
+  display: block;
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+  margin: 0 auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@media (max-width: 767px) {
+  .container {
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+}
