@@ -3,12 +3,11 @@ import SearchForm from "../components/searchForm"
 import PokemonDetails from "../components/pokemonDetails"
 import Spinner from '../components/spinner'
 
-
 const Search = () => {
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null)
     const [pokemon, setPokemon] = useState(null)
-    const [searchTerm, setSearchTerm] = useState('snorlax')
+    const [searchTerm, setSearchTerm] = useState('ninetales')
 
     useEffect(() => {
         getPokemon()
@@ -28,10 +27,10 @@ const Search = () => {
         if (loading) {
             return <Spinner />
         } else if (error) {
-            return <p className='error'>{error}</p>
+            return <p className="error">{error}</p>
         } else if (!searchTerm) {
-            return <p>Search a Pokemon to get started!!</p>
-        } else if (searchTerm) {
+            return <p>Search a pokemon to get started</p>
+        } else if (pokemon) {
             return <PokemonDetails pokemon={pokemon} />
         } else {
             return null
@@ -39,7 +38,7 @@ const Search = () => {
     }
 
     const handleInputChange = e => {
-        searchTerm(e.target.value)
+        setSearchTerm(e.target.value)
     }
 
     const handleFormSubmit = e => {
