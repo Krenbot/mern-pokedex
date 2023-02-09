@@ -57,8 +57,8 @@ const resolvers = {
         },
         addTrainer: async (parent, args, context, info) => {
             const trainer = await Trainer.create(args)
-            return trainer.populate('pokemon')
-        },
+            return (await trainer.populate('pokemon'))
+        }
     }
 }
 
