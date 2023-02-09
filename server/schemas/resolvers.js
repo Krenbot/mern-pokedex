@@ -14,7 +14,7 @@ const resolvers = {
             return await Trainer.find()
         },
         trainer: async (parent, args, context, info) => {
-            return await Trainer.findById(args._id)
+            return await Trainer.findById(args._id).populate('pokemon')
         },
     },
     Mutation: {
@@ -57,8 +57,8 @@ const resolvers = {
         },
         addTrainer: async (parent, args, context, info) => {
             const trainer = await Trainer.create(args)
-            return (await trainer.populate('pokemon'))
-        }
+            return trainer.populate('pokemon')
+        },
     }
 }
 

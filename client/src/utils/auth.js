@@ -4,7 +4,7 @@ const lsKey = 'pokedexToken'
 
 class AuthService {
     getLoggedInUser() {
-        return this.getToken() && decode(this.getToken())?.data || false
+        return (this.getToken() && decode(this.getToken())?.data) || false
     }
 
     loggedIn() {
