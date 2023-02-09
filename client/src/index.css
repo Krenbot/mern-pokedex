@@ -27,11 +27,15 @@ body.dark {
   color: var(--light);
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   color: var(--secondary);
 }
 
-.dark h1, .dark h2, .dark h3 {
+.dark h1,
+.dark h2,
+.dark h3 {
   color: var(--green);
 }
 
@@ -90,12 +94,12 @@ code {
 }
 
 .lights {
-  display: flex; 
+  display: flex;
   flex: 1;
   justify-content: center;
 }
 
-.lights > * {
+.lights>* {
   border-radius: 100px;
   background: var(--hightlight);
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
@@ -105,12 +109,12 @@ code {
   margin: 15px;
 }
 
-.lights > *:first-child {
+.lights>*:first-child {
   background: var(--primary);
   border: 2px solid var(--primaryDark);
 }
 
-.lights > *:nth-child(3) {
+.lights>*:nth-child(3) {
   background: var(--green);
   border: 2px solid var(--greenDark);
 }
@@ -142,11 +146,12 @@ form {
   margin-left: 15px;
   border-radius: 100px;
   padding: 5px;
-} 
+}
 
-input, select {
+input,
+select {
   border-width: 0;
-  border-bottom: 3px solid var(--light);  
+  border-bottom: 3px solid var(--light);
   width: 100%;
   font-size: 18px;
   font-family: 'Press Start 2P', cursive;
@@ -154,7 +159,7 @@ input, select {
   padding: 5px;
 }
 
-#search-form input { 
+#search-form input {
   background: transparent;
   color: var(--light);
 }
@@ -220,15 +225,18 @@ button {
   background-color: var(--light);
 }
 
-.bg-green, .dark button.bg-green {
+.bg-green,
+.dark button.bg-green {
   background: var(--green);
   color: var(--greenDark);
 }
 
 .loader {
   display: block;
-  border: 16px solid #f3f3f3; /* Light grey */
-  border-top: 16px solid #3498db; /* Blue */
+  border: 16px solid #f3f3f3;
+  /* Light grey */
+  border-top: 16px solid #3498db;
+  /* Blue */
   border-radius: 50%;
   width: 120px;
   height: 120px;
@@ -237,8 +245,13 @@ button {
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 @media (max-width: 767px) {
