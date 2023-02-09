@@ -1,4 +1,9 @@
 const typeDefs = `
+type Auth {
+  token: String,
+  trainer: Trainer
+}
+
   type Pokemon {
     _id: ID 
     pokemonId: Int
@@ -21,7 +26,11 @@ const typeDefs = `
     trainers: [Trainer]
     trainer(_id: ID!): Trainer
   }
+
   type Mutation {
+
+    login(email: String!, password: String!): Auth
+
     addPokemon(
       trainerId: ID!
       pokemonId: Int!
@@ -32,6 +41,7 @@ const typeDefs = `
       image: String
       moves: [String]
     ): Pokemon
+    
     addTrainer(
       username: String!
       email: String!
