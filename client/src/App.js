@@ -2,13 +2,17 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { ApolloClient, createHttpLink, InMemoryCache, ApolloProvider } from '@apollo/client'
 import { setContext } from '@apollo/client/link/context'
 import Auth from './utils/auth'
-import Search from './pages/search';
-import Trainer from './pages/trainer';
-import Login from './pages/login';
-import Screen from './components/screen';
-import Header from './components/header';
 
-const httpLink = createHttpLin({
+import Search from './pages/search'
+import Trainer from './pages/trainer'
+import Login from './pages/login'
+
+import Screen from './components/screen'
+import Header from './components/header'
+
+import { ThemeProvider } from './ctx/themeContext'
+
+const httpLink = createHttpLink({
   uri: '/graphql'
 })
 
@@ -30,16 +34,18 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <BrowserRouter>
-        <Header />
-        <Screen>
-          <Routes>
-            <Route path='/' element={<Search />} />
-            <Route path='/login' element={<Login />} />
-            <Route path='/trainer:id' element={<Trainer />} />
-          </Routes>
-        </Screen>
-      </BrowserRouter>
+      <ThemeProvider>
+        <BrowserRouter>
+          <Header />
+          <Screen>
+            <Routes>
+              <Route path="/" element={<Search />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/trainer/:id" element={<Trainer />} />
+            </Routes>
+          </Screen>
+        </BrowserRouter>
+      </ThemeProvider>
     </ApolloProvider>
   );
 }
