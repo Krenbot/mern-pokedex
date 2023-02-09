@@ -38,10 +38,33 @@ const Search = () => {
         }
     }
 
+    const handleInputChange = e => {
+        searchTerm(e.target.value)
+    }
+
+    const handleFormSubmit = e => {
+        e.preventDefault()
+        if (!searchTerm) {
+            return
+        }
+        getPokemon()
+    }
+
+    const reset = () => {
+        setSearchTerm('')
+        setError(null)
+        setPokemon(null)
+    }
+
     return (
         <>
             {renderUI()}
-            <SearchForm />
+            <SearchForm
+                searchTerm={searchTerm}
+                handleInputChange={handleInputChange}
+                handleFormSubmit={handleFormSubmit}
+                reset={reset}
+            />
         </>
     )
 }
